@@ -1,49 +1,27 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Independent operator for high-stakes turnarounds. Diagnose the real problem, set non-negotiable standards, install the fix. Portable offerings to strengthen resilient teams, founders, funds, DAOs, and communities." />
-  <meta name="color-scheme" content="light dark">
-  <title>Independent Operator — Fix What Breaks. Build What Lasts.</title>
+  <meta name="color-scheme" content="light dark" />
+  <title>Independent Operator — Fix what breaks. Build what lasts.</title>
   <style>
+    /* --- Minimal, mobile-first, no JS, no effects --- */
     :root{
       --bg: #ffffff;
-      --text: #0b0b0c;
-      --muted: #585b63;
-      --line: #e6e6ea;
-      --brand: #0f62fe;
-      --brand-ink: #0a3db3;
-      --accent: #10b981;
-      --shadow: 0 8px 24px rgba(0,0,0,.06);
-      --radius: 12px;
-      --space-1: .375rem;
-      --space-2: .75rem;
-      --space-3: 1rem;
-      --space-4: 1.5rem;
-      --space-5: 2rem;
-      --space-6: 3rem;
-      --maxw: 1120px;
-      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
-      --step--1: clamp(.875rem, .84rem + .2vw, .95rem);
-      --step-0: clamp(1rem, .96rem + .35vw, 1.075rem);
-      --step-1: clamp(1.125rem, 1.05rem + .6vw, 1.25rem);
-      --step-2: clamp(1.375rem, 1.2rem + .9vw, 1.6rem);
-      --step-3: clamp(1.75rem, 1.5rem + 1.4vw, 2.125rem);
-      --step-4: clamp(2.2rem, 1.9rem + 2vw, 2.9rem);
+      --fg: #0a0a0a;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --accent:#111111;
+      --maxw: 920px;
     }
     @media (prefers-color-scheme: dark){
       :root{
-        --bg: #0c0d0f;
-        --text: #f7f7f8;
-        --muted: #b2b4bb;
-        --line: #21232a;
-        --brand: #6aa6ff;
-        --brand-ink: #cfe1ff;
-        --accent: #34d399;
-        --shadow: 0 8px 28px rgba(0,0,0,.35);
+        --bg:#0c0d0f;
+        --fg:#f5f7fa;
+        --muted:#a3a9b6;
+        --line:#1e2127;
+        --accent:#ffffff;
       }
     }
     *{box-sizing:border-box}
@@ -51,171 +29,126 @@
     body{
       margin:0;
       background:var(--bg);
-      color:var(--text);
-      font-family:var(--font);
-      line-height:1.55;
-      font-size:var(--step-0);
-      -webkit-font-smoothing:antialiased;
+      color:var(--fg);
+      font: 400 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
       text-rendering:optimizeLegibility;
+      -webkit-font-smoothing:antialiased;
     }
-    a{color:var(--brand); text-decoration:none}
+    a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
-    .container{max-width:var(--maxw); margin-inline:auto; padding-inline: clamp(1rem, 3vw, 2rem)}
-    .stack>*+*{margin-top: var(--space-4)}
-    .cluster{display:flex; gap:var(--space-2); flex-wrap:wrap; align-items:center}
-    header{
-      position:sticky; top:0; backdrop-filter:saturate(180%) blur(8px);
-      background: color-mix(in oklab, var(--bg) 88%, transparent);
-      border-bottom:1px solid var(--line);
-      z-index:50;
-    }
-    .nav{display:flex; justify-content:space-between; align-items:center; height:60px}
-    .brand{font-weight:700; letter-spacing:.2px}
-    .brand small{font-weight:500; color:var(--muted)}
-    .nav a{padding:.5rem .75rem; border-radius:8px}
-    .nav a:focus-visible{outline:2px solid var(--brand); outline-offset:2px}
-    .btn{
-      display:inline-block; border-radius:999px; padding:.75rem 1.1rem; font-weight:600;
-      border:1px solid var(--line); background:transparent; color:var(--text);
-    }
-    .btn.primary{background:var(--brand); color:white; border-color:var(--brand)}
-    .btn.primary:hover{background:var(--brand-ink); color:#0a2540}
-    .btn.ghost:hover{background:color-mix(in oklab, var(--line), transparent 60%)}
-    main{display:block}
-    .hero{
-      padding-block: clamp(2.5rem, 6vw, 5rem);
-      border-bottom:1px solid var(--line);
-    }
-    .eyebrow{
-      display:inline-flex; align-items:center; gap:.5rem; font-size:var(--step--1);
-      color:var(--muted); letter-spacing:.12em; text-transform:uppercase;
-    }
-    .eyebrow::before{
-      content:""; width:.6rem; height:.6rem; border-radius:50%; background:var(--accent); display:inline-block;
-    }
-    h1{font-size:var(--step-4); line-height:1.1; letter-spacing:-.02em; margin:0}
-    h2{font-size:var(--step-3); line-height:1.2; letter-spacing:-.01em; margin:0}
-    h3{font-size:var(--step-2); margin:0 0 .25rem}
-    p{margin:0}
-    .lede{font-size:var(--step-1); color:var(--muted); max-width:72ch}
-    .hero-actions{display:flex; gap:var(--space-2); flex-wrap:wrap; margin-top: var(--space-4)}
-    .section{padding-block: clamp(2rem, 6vw, 4rem)}
-    .grid{
-      display:grid; gap: var(--space-4);
-      grid-template-columns: 1fr;
-    }
-    @media (min-width: 860px){
-      .grid.cols-2{grid-template-columns: 1fr 1fr}
-      .grid.cols-3{grid-template-columns: repeat(3, 1fr)}
-    }
-    .card{
-      border:1px solid var(--line); border-radius:var(--radius); padding: var(--space-4);
-      background: color-mix(in oklab, var(--bg) 96%, transparent);
-      box-shadow: var(--shadow);
-    }
-    .card .kicker{color:var(--muted); font-size:var(--step--1); letter-spacing:.06em; text-transform:uppercase}
-    .list{
-      display:grid; gap:.6rem; margin-top:.5rem; padding-left:0; list-style:none
-    }
-    .list li{
-      padding-left:1.4rem; position:relative;
-    }
-    .list li::before{
-      content:""; position:absolute; left:0; top:.62rem; width:.6rem; height:.6rem; border-radius:50%;
-      background:var(--accent);
-    }
-    .keyline{border-top:1px dashed var(--line); margin-block: var(--space-3)}
-    .pill{
-      border:1px solid var(--line); border-radius:999px; padding:.35rem .7rem; font-size:var(--step--1); color:var(--muted)
-    }
-    .foot{
-      border-top:1px solid var(--line);
-      padding-block: var(--space-4);
-      color:var(--muted);
-    }
-    /* anchor scrolling */
-    html{scroll-behavior:smooth}
-    /* focus */
-    .focus-ring:focus-visible{outline:2px solid var(--brand); outline-offset:3px}
-    /* utility */
+    .wrap{max-width:var(--maxw); margin-inline:auto; padding:0 16px}
+    .space-1{margin-top:8px}
+    .space-2{margin-top:16px}
+    .space-3{margin-top:24px}
+    .space-4{margin-top:32px}
+    .space-5{margin-top:48px}
     .muted{color:var(--muted)}
-    .center{display:grid; place-items:center}
-    .right{justify-content:flex-end}
-    /* section accents */
-    .accent-bar{
-      border-left:4px solid var(--accent);
-      padding-left: var(--space-3);
+    hr{border:0; border-top:1px solid var(--line); margin:32px 0}
+
+    /* Headings */
+    h1{font-size:clamp(28px, 6vw, 44px); line-height:1.15; margin:0}
+    h2{font-size:clamp(22px, 4.5vw, 30px); line-height:1.2; margin:0}
+    h3{font-size:clamp(18px, 3.6vw, 20px); line-height:1.35; margin:0}
+
+    /* Header (super simple) */
+    .site-head{padding:20px 0 8px; border-bottom:1px solid var(--line)}
+    .brand{display:block; font-weight:700; letter-spacing:.2px}
+    .tag{margin:4px 0 0; color:var(--muted); font-size:14px}
+    .nav{display:flex; flex-wrap:wrap; gap:10px; padding:10px 0}
+    .nav a{padding:4px 6px; border-radius:6px}
+    .nav .cta{border:1px solid var(--line); padding:6px 10px}
+
+    /* Sections */
+    section{padding:28px 0}
+    .grid{display:grid; gap:20px}
+    .cols-2{grid-template-columns: 1fr}
+    @media (min-width: 900px){
+      .cols-2{grid-template-columns: 1fr 1fr}
     }
+
+    /* Lists */
+    ul{margin:10px 0 0; padding-left:18px}
+    li{margin:.25em 0}
+
+    /* Minimal boxes for clarity (no shadows) */
+    .box{border:1px solid var(--line); border-radius:8px; padding:16px}
+
+    /* Footer */
+    footer{border-top:1px solid var(--line); padding:20px 0; color:var(--muted); font-size:14px}
   </style>
 </head>
 <body>
-  <a href="#contact" class="focus-ring pill" style="position:fixed;left:8px;top:8px;z-index:60;background:color-mix(in oklab,var(--bg) 92%, transparent);backdrop-filter:blur(6px);">Skip to Contact</a>
-
-  <header>
-    <div class="container nav">
-      <div class="brand">Independent Operator <small>— Fix what breaks. Build what lasts.</small></div>
-      <nav class="cluster" aria-label="Primary">
-        <a href="#turnaround" class="focus-ring">Turnaround</a>
-        <a href="#offerings" class="focus-ring">Offerings</a>
-        <a href="#why" class="focus-ring">Why me</a>
-        <a href="#fit" class="focus-ring">Fit</a>
-        <a href="#contact" class="btn primary">Start</a>
+  <!-- HEADER -->
+  <header class="site-head">
+    <div class="wrap">
+      <span class="brand">Independent Operator</span>
+      <p class="tag">Fix what breaks. Build what lasts.</p>
+      <nav class="nav">
+        <a href="#turnaround">Primary</a>
+        <a href="#offerings">Offerings</a>
+        <a href="#why">Why me</a>
+        <a href="#fit">Fit</a>
+        <a href="#contact" class="cta">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
     <!-- HERO -->
-    <section class="hero">
-      <div class="container stack">
-        <span class="eyebrow">High-stakes problem solving</span>
+    <section>
+      <div class="wrap">
         <h1>Cut to the core. Set the standard. Install the fix.</h1>
-        <p class="lede">
-          When systems wobble—governance, teams, protocols, or projects—you don’t need more noise. I join a small trusted cell, expose the real flaw, establish simple non-negotiable rules, and deliver results under pressure.
+        <p class="muted space-2">
+          When systems wobble—governance, teams, protocols, projects—you don’t need more noise. I join a small trusted cell, expose the real flaw, establish simple non-negotiable rules, and deliver results under pressure.
         </p>
-        <div class="hero-actions">
-          <a href="#turnaround" class="btn primary">Primary Offering</a>
-          <a href="#offerings" class="btn ghost">Supplementary Offerings</a>
-        </div>
       </div>
     </section>
 
+    <hr/>
+
     <!-- PRIMARY OFFERING -->
-    <section id="turnaround" class="section">
-      <div class="container grid cols-2">
-        <div class="stack">
-          <span class="kicker">Primary Offering</span>
-          <h2>High-Stakes Turnaround (Small-Team Lead)</h2>
-          <p class="muted">Brought in when things are breaking—or about to.</p>
-          <div class="card accent-bar">
+    <section id="turnaround">
+      <div class="wrap grid cols-2">
+        <div>
+          <h2>Primary Offering: High-Stakes Turnaround</h2>
+          <p class="muted space-2">Brought in when things are breaking—or about to.</p>
+
+          <div class="box space-3">
             <h3>What I do</h3>
-            <ul class="list">
+            <ul>
               <li>Diagnose the real problem—cut through politics and noise.</li>
               <li>Set non-negotiable standards everyone can trust.</li>
               <li>Design staged corrections with clear responsibilities.</li>
               <li>Build fail-safes: rollback, succession, collapse protocols.</li>
               <li>Prove results: defects ↓, decision latency ↓, failure risk contained.</li>
             </ul>
-            <div class="keyline"></div>
-            <div class="cluster">
-              <span class="pill">Direct mandate</span>
-              <span class="pill">Protected lane</span>
-              <span class="pill">Outcome-based</span>
-            </div>
+          </div>
+
+          <div class="box space-3">
+            <h3>Engagement conditions</h3>
+            <ul>
+              <li>Explicit mandate & clear scope</li>
+              <li>Direct access to the decision-maker</li>
+              <li>Freedom within a firm container</li>
+              <li>Outcome-based compensation / reputation credit</li>
+            </ul>
           </div>
         </div>
-        <div class="stack">
-          <div class="card">
+
+        <div>
+          <div class="box">
             <h3>Where I fit best</h3>
-            <ul class="list">
-              <li>Founder/CEO Office — trusted fixer with access to power.</li>
-              <li>Special Projects / Skunkworks — surgical, mission-critical units.</li>
-              <li>Board-Mandated Reforms — governance cleanup and integrity fixes.</li>
-              <li>Protocol / Standards Bodies — integrity where failure isn’t an option.</li>
+            <ul>
+              <li>Founder/CEO Office — trusted fixer with access to power</li>
+              <li>Special Projects / Skunkworks — surgical, mission-critical units</li>
+              <li>Board-Mandated Reforms — governance cleanup & integrity fixes</li>
+              <li>Protocol / Standards Bodies — integrity where failure isn’t an option</li>
             </ul>
-            <div class="keyline"></div>
-            <h3>Team shape</h3>
-            <ul class="list">
+          </div>
+
+          <div class="box space-3">
+            <h3>Team shape (lean)</h3>
+            <ul>
               <li>Lead (diagnosis + standard-setting)</li>
               <li>Ops implementer</li>
               <li>Data/forensics analyst</li>
@@ -223,156 +156,148 @@
               <li>Optional: legal/comms shield</li>
             </ul>
           </div>
-          <div class="cluster right">
-            <a href="#contact" class="btn primary">Engage for Turnaround</a>
-          </div>
+
+          <p class="space-3"><a href="#contact">Engage for turnaround →</a></p>
         </div>
       </div>
     </section>
 
+    <hr/>
+
     <!-- SUPPLEMENTARY OFFERINGS -->
-    <section id="offerings" class="section" aria-labelledby="offerings-title">
-      <div class="container stack">
-        <span class="kicker" id="offerings-title">Supplementary Offerings</span>
-        <h2>Portable services that strengthen serious teams</h2>
-        <div class="grid cols-2">
-          <article class="card">
+    <section id="offerings">
+      <div class="wrap">
+        <h2>Supplementary Offerings</h2>
+        <p class="muted space-2">Portable services that strengthen serious teams.</p>
+
+        <div class="grid cols-2 space-3">
+          <div class="box">
             <h3>Independent Strategy & Risk Audit</h3>
             <p class="muted">Find hidden flaws, inefficiencies, and capture risks.</p>
-            <ul class="list">
+            <ul>
               <li>Clear map of what works vs. what breaks</li>
               <li>Actionable fixes prioritized by impact</li>
             </ul>
-            <div class="keyline"></div>
-            <p><strong>Fit:</strong> Founders, investors, funds, DAOs, nonprofits</p>
-          </article>
+            <p class="muted"><strong>Fit:</strong> Founders, investors, funds, DAOs, nonprofits</p>
+          </div>
 
-          <article class="card">
+          <div class="box">
             <h3>Culture & Story Alignment</h3>
             <p class="muted">Values and narrative that actually guide behavior—no slogans.</p>
-            <ul class="list">
+            <ul>
               <li>Identity that holds under pressure</li>
               <li>Message clarity across teams & stakeholders</li>
             </ul>
-            <div class="keyline"></div>
-            <p><strong>Fit:</strong> Brands, communities, mission-driven orgs</p>
-          </article>
+            <p class="muted"><strong>Fit:</strong> Brands, communities, mission-driven orgs</p>
+          </div>
 
-          <article class="card">
+          <div class="box">
             <h3>Resilience Design</h3>
             <p class="muted">Systems that keep working through shocks.</p>
-            <ul class="list">
+            <ul>
               <li>Supply, governance, and comms contingencies</li>
               <li>Failure-mode playbooks & backups</li>
             </ul>
-            <div class="keyline"></div>
-            <p><strong>Fit:</strong> Startups, Bitcoin companies, sovereign projects</p>
-          </article>
+            <p class="muted"><strong>Fit:</strong> Startups, Bitcoin companies, sovereign projects</p>
+          </div>
 
-          <article class="card">
+          <div class="box">
             <h3>Agreements & Governance Simplified</h3>
             <p class="muted">Contracts and rules that are clear, enforceable, and fair.</p>
-            <ul class="list">
+            <ul>
               <li>Decision rights & escalation paths</li>
               <li>Lightweight operating standards</li>
             </ul>
-            <div class="keyline"></div>
-            <p><strong>Fit:</strong> DAOs, partnerships, investment clubs, communities</p>
-          </article>
+            <p class="muted"><strong>Fit:</strong> DAOs, partnerships, clubs, communities</p>
+          </div>
 
-          <article class="card">
+          <div class="box">
             <h3>Property & Land Due Diligence</h3>
             <p class="muted">Long-term value and resilience, not just price.</p>
-            <ul class="list">
+            <ul>
               <li>Water/energy, zoning, and risk overlays</li>
               <li>Go/No-Go clarity before you commit</li>
             </ul>
-            <div class="keyline"></div>
-            <p><strong>Fit:</strong> Families, investors, sovereign communities</p>
-          </article>
+            <p class="muted"><strong>Fit:</strong> Families, investors, sovereign communities</p>
+          </div>
 
-          <article class="card">
+          <div class="box">
             <h3>Communications & Narrative Proofing</h3>
             <p class="muted">Messages that stick and can’t be twisted.</p>
-            <ul class="list">
+            <ul>
               <li>High-signal briefs & founder letters</li>
               <li>Crisis-proof messaging frameworks</li>
             </ul>
-            <div class="keyline"></div>
-            <p><strong>Fit:</strong> Founders, campaigns, journalists, activists</p>
-          </article>
+            <p class="muted"><strong>Fit:</strong> Founders, campaigns, journalists, activists</p>
+          </div>
 
-          <article class="card">
+          <div class="box">
             <h3>Knowledge Systems & Libraries</h3>
             <p class="muted">Organize what matters; cut the noise.</p>
-            <ul class="list">
+            <ul>
               <li>Curated sources and living references</li>
               <li>Retrieval structure your team will use</li>
             </ul>
-            <div class="keyline"></div>
-            <p><strong>Fit:</strong> Schools, think tanks, serious projects</p>
-          </article>
+            <p class="muted"><strong>Fit:</strong> Schools, think tanks, serious projects</p>
+          </div>
 
-          <article class="card">
+          <div class="box">
             <h3>High-Performance Foundations</h3>
             <p class="muted">Practical protocols for sharpness under pressure.</p>
-            <ul class="list">
+            <ul>
               <li>Nutrition & training fundamentals</li>
               <li>Focus & recovery for demanding roles</li>
             </ul>
-            <div class="keyline"></div>
-            <p><strong>Fit:</strong> Founders, executives, operators, athletes</p>
-          </article>
+            <p class="muted"><strong>Fit:</strong> Founders, executives, operators, athletes</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- WHY ME -->
-    <section id="why" class="section">
-      <div class="container grid cols-2">
-        <div class="stack">
-          <span class="kicker">Why work with me</span>
-          <h2>AI can write reports. It can’t live proof.</h2>
-          <div class="card">
-            <ul class="list">
-              <li>Built in the real world—kitchens, housing sites, stadium floors.</li>
-              <li>Embedded in informal markets (Accra) and community strategy (Oakland).</li>
-              <li>Data & GIS when useful—always grounded in execution.</li>
-              <li>Designs for risk, disruption, and recovery—not perfect conditions.</li>
-            </ul>
-          </div>
+    <hr/>
+
+    <!-- WHY -->
+    <section id="why">
+      <div class="wrap grid cols-2">
+        <div>
+          <h2>Why work with me</h2>
+          <p class="muted space-2">AI can write reports. It can’t live proof.</p>
+          <ul class="space-2">
+            <li>Built in the real world—kitchens, housing sites, stadium floors.</li>
+            <li>Embedded in informal markets (Accra) and community strategy (Oakland).</li>
+            <li>Data & GIS when useful—always grounded in execution.</li>
+            <li>Designed for risk, disruption, and recovery—not perfect conditions.</li>
+          </ul>
         </div>
-        <div class="stack">
-          <div class="card accent-bar">
-            <h3>Engagement conditions</h3>
-            <ul class="list">
-              <li>Explicit mandate & clear scope</li>
-              <li>Direct access to the decision-maker</li>
-              <li>Freedom within a firm container</li>
-              <li>Outcome-based compensation / reputation credit</li>
-            </ul>
-            <div class="keyline"></div>
-            <p class="muted">If these aren’t in place, we don’t engage. It keeps the work clean—and effective.</p>
-          </div>
+        <div>
+          <h2>Engagement basics</h2>
+          <ul class="space-2">
+            <li>Clear mandate and scope</li>
+            <li>Direct access to the decision-maker</li>
+            <li>Freedom within a firm container</li>
+            <li>Outcome-based compensation / reputation credit</li>
+          </ul>
         </div>
       </div>
     </section>
+
+    <hr/>
 
     <!-- FIT -->
-    <section id="fit" class="section">
-      <div class="container grid cols-2">
-        <div class="card">
+    <section id="fit">
+      <div class="wrap grid cols-2">
+        <div>
           <h3>Best fit</h3>
-          <ul class="list">
+          <ul>
             <li>Founder/CEO ready to fix systemic issues</li>
             <li>Board or LP seeking integrity and speed</li>
             <li>Protocol/standards body needing capture-resistant rules</li>
             <li>Sovereign/parallel projects building for resilience</li>
           </ul>
         </div>
-        <div class="card">
+        <div>
           <h3>Not a fit</h3>
-          <ul class="list">
+          <ul>
             <li>Keep-the-lights-on operations roles</li>
             <li>Large bureaucracy without a direct sponsor</li>
             <li>High-churn sales/PR optics</li>
@@ -382,37 +307,25 @@
       </div>
     </section>
 
+    <hr/>
+
     <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="container center stack">
+    <section id="contact">
+      <div class="wrap">
         <h2>Ready when you are.</h2>
-        <p class="lede">If the mandate is clear and the stakes are real, let’s begin.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="mailto:ops@sovereign-node.example?subject=Turnaround%20Engagement%20Inquiry">Start a Mandate</a>
-          <a class="btn ghost" href="mailto:ops@sovereign-node.example?subject=Supplementary%20Offerings%20Inquiry">Ask about Offerings</a>
-        </div>
-        <p class="muted" style="margin-top:.75rem">Prefer a brief? Send context + objectives in the email. I’ll respond with the simplest path to proof.</p>
+        <p class="muted space-2">If the mandate is clear and the stakes are real, let’s begin.</p>
+        <p class="space-2">
+          <a href="mailto:ops@sovereign-node.example?subject=Turnaround%20Engagement%20Inquiry">Start a mandate →</a><br/>
+          <a href="mailto:ops@sovereign-node.example?subject=Supplementary%20Offerings%20Inquiry">Ask about offerings →</a>
+        </p>
       </div>
     </section>
   </main>
 
-  <footer class="foot">
-    <div class="container cluster" style="justify-content:space-between">
-      <span>© <span id="y"></span> Independent Operator</span>
-      <span class="cluster">
-        <a class="pill" href="#turnaround">Turnaround</a>
-        <a class="pill" href="#offerings">Offerings</a>
-        <a class="pill" href="#why">Why me</a>
-        <a class="pill" href="#fit">Fit</a>
-      </span>
+  <footer>
+    <div class="wrap">
+      © Independent Operator — All rights reserved
     </div>
-    <!-- No JS used; the year can be kept static or edited server-side if desired -->
-    <script>
-      // Optional progressive enhancement: set year without external dependencies.
-      // Remove this <script> block if you require pure HTML/CSS only.
-      document.getElementById('y').textContent = new Date().getFullYear();
-    </script>
   </footer>
 </body>
 </html>
-
