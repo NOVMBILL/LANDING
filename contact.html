@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Contact — Independent Operator</title>
+  <style>
+    /* Minimal, aligned with index.html, no JS */
+    :root{
+      --bg:#ffffff; --fg:#0a0a0a; --muted:#6b7280; --line:#e5e7eb; --accent:#111111; --maxw:920px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#0c0d0f; --fg:#f5f7fa; --muted:#a3a9b6; --line:#1e2127; --accent:#ffffff; }
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);
+      font:400 16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";}
+    a{color:var(--accent); text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw); margin-inline:auto; padding:0 16px}
+    header{padding:20px 0 8px; border-bottom:1px solid var(--line)}
+    .brand{display:block;font-weight:700;letter-spacing:.2px}
+    .tag{margin:4px 0 0;color:var(--muted);font-size:14px}
+    nav{display:flex;flex-wrap:wrap;gap:10px;padding:10px 0}
+    nav a{padding:4px 6px;border-radius:6px}
+    nav .cta{border:1px solid var(--line); padding:6px 10px}
+    main{padding:28px 0}
+    h1{font-size:clamp(28px,6vw,44px); line-height:1.15; margin:0}
+    h2{font-size:clamp(20px,4.5vw,26px); line-height:1.25; margin:0}
+    h3{font-size:clamp(18px,3.5vw,20px); line-height:1.35; margin:0}
+    p{margin:0}
+    .muted{color:var(--muted)}
+    .space-1{margin-top:8px} .space-2{margin-top:16px} .space-3{margin-top:24px} .space-4{margin-top:32px}
+    .box{border:1px solid var(--line); border-radius:8px; padding:16px}
+    .grid{display:grid; gap:20px}
+    .cols-2{grid-template-columns:1fr}
+    @media (min-width:900px){ .cols-2{grid-template-columns:1fr 1fr} }
+    code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace}
+    pre{white-space:pre-wrap;word-break:break-word;background:transparent;border:1px dashed var(--line);border-radius:8px;padding:12px}
+    hr{border:0;border-top:1px solid var(--line); margin:32px 0}
+    footer{border-top:1px solid var(--line); padding:20px 0; color:var(--muted); font-size:14px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="index.html">Independent Operator</a>
+      <p class="tag">Fix what breaks. Build what lasts.</p>
+      <nav>
+        <a href="index.html#turnaround">Primary</a>
+        <a href="index.html#offerings">Offerings</a>
+        <a href="index.html#why">Why me</a>
+        <a href="index.html#fit">Fit</a>
+        <a href="contact.html" class="cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap">
+      <h1>Contact</h1>
+      <p class="muted space-2">Choose one channel. I prioritize encrypted, high-signal messages.</p>
+
+      <div class="grid cols-2 space-4">
+        <!-- NOSTR -->
+        <div class="box">
+          <h2>Nostr (preferred)</h2>
+          <p class="muted space-1">Use a DM-capable client (e.g., White Noise). Send a short intro + purpose.</p>
+          <div class="space-2">
+            <p class="muted">Public key (npub / nprofile):</p>
+            <pre><code>npub1______________________________REPLACE_ME___________________________</code></pre>
+          </div>
+          <div class="space-2">
+            <p class="muted">Note:</p>
+            <ul style="margin:8px 0 0; padding-left:18px">
+              <li>DMs should use client-side encryption (NIP-04/17 or client default).</li>
+              <li>If using <em>White Noise</em>, open a new DM and paste the npub above.</li>
+              <li>Include a reply method (nostr, Session, or SimpleX) in your first message.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- EMAIL (PGP ONLY) -->
+        <div class="box">
+          <h2>Email (PGP-only)</h2>
+          <p class="muted space-1">Unencrypted email may be ignored. Encrypt to the public key below.</p>
+          <div class="space-2">
+            <p><strong>Email:</strong> <code>ops@your-domain.example</code></p>
+            <p class="space-1"><strong>PGP fingerprint:</strong> <code>FFFF AAAA BBBB CCCC DDDD  EEEE FFFF 0000 1111 2222</code></p>
+            <p class="space-1"><strong>Public key (.asc):</strong> <a href="/pgp/publickey.asc">/pgp/publickey.asc</a></p>
+          </div>
+          <details class="space-2">
+            <summary><strong>How to send a PGP-encrypted email</strong></summary>
+            <div class="space-2">
+              <ol style="margin:0; padding-left:18px">
+                <li>Import my key (<code>/pgp/publickey.asc</code>) into your mail client or GnuPG.</li>
+                <li>Verify the fingerprint matches the one above (out-of-band if possible).</li>
+                <li>Compose your email to <code>ops@your-domain.example</code> and select “encrypt”.</li>
+                <li>Keep the subject generic; place sensitive content in the body.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <!-- SIMPLEX -->
+        <div class="box">
+          <h2>SimpleX</h2>
+          <p class="muted space-1">Private, serverless messaging. Share your contact request here.</p>
+          <div class="space-2">
+            <p><strong>Address:</strong></p>
+            <pre><code>smp:______________________________REPLACE_SIMPLEX_ADDRESS____________________________</code></pre>
+          </div>
+        </div>
+
+        <!-- SESSION -->
+        <div class="box">
+          <h2>Session</h2>
+          <p class="muted space-1">End-to-end encrypted messenger. Paste the Session ID below.</p>
+          <div class="space-2">
+            <p><strong>Session ID:</strong></p>
+            <pre><code>05________________________________REPLACE_SESSION_ID________________________________</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="grid cols-2">
+        <!-- SIGNAL POLICY -->
+        <div class="box">
+          <h3>Signal policy</h3>
+          <ul style="margin:8px 0 0; padding-left:18px">
+            <li>Short, purpose-first messages get priority.</li>
+            <li>No links to cloud drives for first contact.</li>
+            <li>Share: who you are, objective, timeline, decision-maker.</li>
+          </ul>
+        </div>
+
+        <!-- PGP QUICKSTART FOR YOU -->
+        <div class="box">
+          <h3>PGP quickstart (for you)</h3>
+          <ol style="margin:8px 0 0; padding-left:18px">
+            <li>Locate your key: <code>gpg --list-keys</code></li>
+            <li>Export ASCII public key: <code>gpg --export -a "Your Name" &gt; publickey.asc</code></li>
+            <li>Show/record fingerprint: <code>gpg --fingerprint "Your Name"</code></li>
+            <li>Upload <code>publickey.asc</code> to <code>/pgp/publickey.asc</code> on your site.</li>
+            <li>Paste fingerprint above and keep it consistent everywhere.</li>
+          </ol>
+          <p class="muted space-2">Do <strong>not</strong> upload your key as a PDF. Use plain <code>.asc</code> text.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© Independent Operator — All rights reserved</div>
+  </footer>
+</body>
+</html>
